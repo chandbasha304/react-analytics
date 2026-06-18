@@ -6,17 +6,17 @@ module.exports = {
   mode: "development",
   entry: "./src/index.js",
   devServer: {
-    port: 3000,
+    port: 3001,
     headers: {
       "Access-Control-Allow-Origin": "*",
     },
   },
- output: {
-  publicPath: "http://localhost:3000/",
-  path: path.resolve(__dirname, "dist"),
-  filename: "bundle.js",
-  library: { type: "var", name: "reactApp" },   // ✅ no stray "s"
-},
+  output: {
+    publicPath: "auto",
+    path: path.resolve(__dirname, "dist"),
+    filename: "bundle.js",
+    library: { type: "var", name: "reactApp" },   // ✅ no stray "s"
+  },
   module: {
     rules: [
       {
