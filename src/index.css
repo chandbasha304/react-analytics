@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  /* Colors */
+  --primary: #db2777; /* Premium Pink/Rose */
+  --primary-glow: rgba(219, 39, 119, 0.12);
+  --secondary: #4f46e5; /* Contrast Indigo */
+  --secondary-glow: rgba(79, 70, 229, 0.12);
+  --accent: #f59e0b;
+  --accent-glow: rgba(245, 158, 11, 0.12);
+  --danger: #e11d48;
+  --danger-glow: rgba(225, 29, 72, 0.12);
+  --violet: #8b5cf6;
+  --violet-glow: rgba(139, 92, 246, 0.12);
+  
+  --bg-main: #fff5f6; /* Beautiful soft pink background */
+  --bg-sidebar: rgba(255, 241, 242, 0.95); /* Delicate rose-50 background */
+  --bg-card: rgba(255, 255, 255, 0.85);
+  --bg-card-hover: rgba(255, 255, 255, 0.95);
+  
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --text-light: #94a3b8;
+  
+  --border-color: rgba(251, 113, 133, 0.18); /* Pinkish border tone */
+  --border-glow: rgba(219, 39, 119, 0.35);
+  
+  /* Blurs & Shadows */
+  --glass-blur: blur(20px);
+  --shadow-sm: 0 4px 12px rgba(219, 39, 119, 0.02);
+  --shadow-md: 0 10px 30px rgba(219, 39, 119, 0.05);
+  --shadow-lg: 0 20px 40px rgba(219, 39, 119, 0.08);
+  --shadow-glow: 0 10px 30px rgba(219, 39, 119, 0.15);
+  
+  /* Fonts */
+  --font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family);
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Custom Premium Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 999px;
+  border: 2px solid var(--bg-main);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Base animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    transform: scale(0.96);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-scale-up {
+  animation: scaleUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
