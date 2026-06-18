@@ -4,6 +4,13 @@ import { t, getLang } from "../translations";
 
 const CHART_COLORS = ["#db2777", "#4f46e5", "#10b981", "#f59e0b", "#8b5cf6"];
 
+const getApiBaseUrl = (defaultLocalUrl, relativePath) => {
+  if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
+    return defaultLocalUrl;
+  }
+  return relativePath;
+};
+
 function DepartmentAnalytics() {
   const [stats, setStats] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -29,7 +36,8 @@ function DepartmentAnalytics() {
     }
 
     setLoading(true);
-    fetch("http://localhost:8081/department-service/api/department/analytics", {
+    const baseUrl = getApiBaseUrl("http://localhost:8081/department-service", "/department-service");
+    fetch(`${baseUrl}/api/department/analytics`, {
       headers
     })
       .then(res => {

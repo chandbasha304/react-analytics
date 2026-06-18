@@ -15,6 +15,13 @@ const COLORS = [
   "#f43f5e"  // Rose-red
 ];
 
+const getApiBaseUrl = (defaultLocalUrl, relativePath) => {
+  if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
+    return defaultLocalUrl;
+  }
+  return relativePath;
+};
+
 function EmployeeAnalytics() {
   const [stats, setStats] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -41,7 +48,8 @@ function EmployeeAnalytics() {
     }
 
     setLoading(true);
-    fetch("http://localhost:8080/employee-service/api/employees/analytics", {
+    const baseUrl = getApiBaseUrl("http://localhost:8080/employee-service", "/employee-service");
+    fetch(`${baseUrl}/api/employees/analytics`, {
       headers
     })
       .then(res => {
